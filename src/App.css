@@ -1,0 +1,45 @@
+:root {
+  --app-height-variable: 55px;
+  --aside-width-variable: 16%;
+}
+
+.App {
+  font-family: var(
+    --font-family,
+    CircularSp,
+    CircularSp-Arab,
+    CircularSp-Hebr,
+    CircularSp-Cyrl,
+    CircularSp-Grek,
+    CircularSp-Deva,
+    var(--fallback-fonts, sans-serif)
+  );
+  display: flex;
+}
+
+.App > div:nth-child(3) {
+  margin-top: var(--app-height-variable);
+  position: fixed;
+  left: var(--aside-width-variable);
+  width: calc(100vw - var(--aside-width-variable));
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.dark > div:nth-child(3) {
+  background-color: rgba(127, 85, 57, 0.75);
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 576px) {
+  :root {
+    --aside-width-variable: 170px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .App > div:nth-child(3) {
+    position: relative;
+    left: 0;
+    width: 100%;
+  }
+}
